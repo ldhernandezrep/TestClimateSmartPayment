@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="120dp"
+    android:layout_height="170dp"
+    android:layout_margin="5dp"
+    android:orientation="vertical"
+    app:cardCornerRadius="4dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/imvClimate"
+            android:layout_width="match_parent"
+            android:background="#FFFFFF"
+            android:layout_height="120dp"
+            />
+
+        <TextView
+            android:id="@+id/tvClimateName"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:text="Con lluvia"
+            android:gravity="center"
+            android:textSize="13sp" />
+
+        <TextView
+            android:id="@+id/tvTemperature"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="30 grados"
+            android:gravity="center"
+            android:textSize="13sp" />
+
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>
