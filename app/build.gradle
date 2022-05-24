@@ -90,4 +90,7 @@ dependencies {
 
     kapt 'com.github.bumptech.glide:compiler:4.13.0'
 
+    implementation("io.coil-kt:coil:1.4.0")
+    implementation("io.coil-kt:coil-svg:1.4.0")
+
 }

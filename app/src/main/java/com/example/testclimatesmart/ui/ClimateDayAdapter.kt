@@ -5,22 +5,28 @@ import android.graphics.drawable.Drawable
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.ImageView
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide.with
-import com.bumptech.glide.load.engine.DiskCacheStrategy
+import coil.ImageLoader
+import coil.decode.SvgDecoder
+import coil.load
+import coil.request.ImageRequest
 import com.example.testclimatesmart.core.BaseViewHolder
 import com.example.testclimatesmart.core.Constantes
 import com.example.testclimatesmart.data.DayClimate
-import com.example.testclimatesmart.databinding.ClimateDayRowBinding
 import com.example.testclimatesmart.databinding.ClimateGeneralRowBinding
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.example.testclimatesmart.R
+import java.io.File
+import java.security.PrivateKey
 
 
 class ClimateDayAdapter(
     private val climateDays: List<DayClimate>,
-    private val onDayClimateClickListener: OnDayClimateClickListener
+    private val onDayClimateClickListener: OnDayClimateClickListener,
+    private val url: String
 ) : RecyclerView.Adapter<BaseViewHolder<*>>() {
 
 
@@ -60,29 +66,56 @@ class ClimateDayAdapter(
 
         override fun bind(item: DayClimate) {
 
-            var url: String =
-                Constantes.URL_IMAGE_BASE + item.weather.filter { x -> x.dt == item.dt }
-                    .first().icon + Constantes.EXTENSION
 
             binding.tvTemperature.text =
                 item.weather.filter { x -> x.dt == item.dt }.first().description
 
-            //binding.imvClimate.setImageResource(R.drawable.storm)
 
-            Log.d("URL INAGE", url)
+            val url: String = item.weather.filter { x -> x.dt == item.dt }.first().icon;
 
-            var urlImage = url
+            binding.tvClimateName.text = url
 
-            Glide.with(context)
-                .load(Constantes.URL_IMAGE_BASE + item.weather.filter { x -> x.dt == item.dt }
-                    .first().icon + Constantes.EXTENSION)
-                .centerCrop()
-                .diskCacheStrategy(DiskCacheStrategy.RESOURCE)
-                .skipMemoryCache(true)
-                .error(R.drawable.storm)
-                .into(binding.imvClimate)
+            Log.d("Glide uno", url)
+
+            /* Glide.with(context).asBitmap()
+                 .load(url)
+                 .into(binding.imvClimate)*/
+
+
+            binding.imvClimate.load(item.weather.filter { x -> x.dt == item.dt }.first().icon) {
+                listener(
+                    // pass two arguments
+                    onSuccess = { _, _ ->
+
+                    },
+                    onError = { request: ImageRequest, throwable: Throwable ->
+                        request.error
+                        Log.d("Error image", throwable.message.toString())
+                    })
+                // setup error image
+                error(R.drawable.storm)
+
+            }
 
         }
     }
+
+}
+
+private fun ImageView.loadUrl(url: String) {
+
+    val imageLoader = ImageLoader.Builder(this.context)
+        .componentRegistry { add(SvgDecoder(this@loadUrl.context)) }
+        .build()
+
+    val request = ImageRequest.Builder(this.context)
+        .crossfade(true)
+        .crossfade(100)
+        .error(R.drawable.storm)
+        .data(url)
+        .target(this)
+        .build()
+
+    imageLoader.enqueue(request)
 
 }

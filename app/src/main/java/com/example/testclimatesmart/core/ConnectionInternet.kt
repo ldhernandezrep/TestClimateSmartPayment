@@ -15,8 +15,8 @@ object ConnectionInternet {
         return@coroutineScope try {
             val sock = Socket()
             val socketAdrres = InetSocketAddress("8.8.8.8", 53)
-            //sock.connect(socketAdrres, 3000)
-            //sock.close()
+            sock.connect(socketAdrres, 3000)
+            sock.close()
             true
         } catch (e: IOException) {
             Log.d("Error", e.message.toString())

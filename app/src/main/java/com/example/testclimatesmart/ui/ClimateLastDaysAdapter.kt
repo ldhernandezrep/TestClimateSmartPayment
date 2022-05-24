@@ -39,7 +39,7 @@ class ClimateLastDaysAdapter(
 
         override fun bind(item: String) {
 
-            adapterClimateDay = ClimateDayAdapter(listDayClimate.filter { x -> x.dt_txt_short == item }, onDayClimateClickListener)
+            adapterClimateDay = ClimateDayAdapter(listDayClimate.filter { x -> x.dt_txt_short == item }, onDayClimateClickListener,"http://openweathermap.org/img/wn/10d@2x.png")
             binding.rcvClimateDay.adapter = adapterClimateDay
             binding.tvTitleDay.text = item.toString()
         }

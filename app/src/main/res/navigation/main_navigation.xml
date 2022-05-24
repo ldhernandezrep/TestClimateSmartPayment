@@ -9,5 +9,14 @@
         android:id="@+id/fragmentClimate"
         android:name="com.example.testclimatesmart.ui.FragmentClimate"
         android:label="fragment_climate"
-        tools:layout="@layout/fragment_climate" />
+        tools:layout="@layout/fragment_climate" >
+        <action
+            android:id="@+id/action_fragmentClimate_to_detailDayClimateFragment"
+            app:destination="@id/detailDayClimateFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailDayClimateFragment"
+        android:name="com.example.testclimatesmart.ui.DetailDayClimateFragment"
+        android:label="fragment_detail_day_climate"
+        tools:layout="@layout/fragment_detail_day_climate" />
 </navigation>

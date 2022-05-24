@@ -10,7 +10,9 @@ import android.view.View
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.core.os.bundleOf
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.example.testclimatesmart.R
 import com.example.testclimatesmart.core.ResultsState
 import com.example.testclimatesmart.data.DayClimate
@@ -141,7 +143,13 @@ class FragmentClimate : Fragment(R.layout.fragment_climate),
     }
 
     override fun onDayClimateClick(dayClimate: DayClimate) {
-        TODO("Not yet implemented")
+        findNavController().navigate(
+            R.id.action_fragmentClimate_to_detailDayClimateFragment,
+            bundleOf(
+                "Dt" to dayClimate.dt
+            )
+
+        )
     }
 
 
