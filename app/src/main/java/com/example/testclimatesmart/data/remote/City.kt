@@ -1,4 +1,6 @@
-package com.example.testclimatesmart.data
+package com.example.testclimatesmart.data.remote
+
+import com.example.testclimatesmart.data.remote.Coord
 
 data class City(
     var id: Int = 0,

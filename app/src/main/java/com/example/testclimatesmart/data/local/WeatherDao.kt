@@ -14,4 +14,7 @@ interface WeatherDao {
     @Query("SELECT * FROM WeatherEntity")
     suspend fun getWheater(): List<WeatherEntity>;
 
+    @Query("SELECT * FROM WeatherEntity WHERE dt = :dt")
+    suspend fun getWeathersByDt(dt: Long): List<WeatherEntity>
+
 }

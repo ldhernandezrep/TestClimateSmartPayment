@@ -1,7 +1,8 @@
-package com.example.testclimatesmart.data
+package com.example.testclimatesmart.data.remote
 
 import com.example.testclimatesmart.api.ApiWheaterClient
 import com.example.testclimatesmart.core.Constantes
+import com.example.testclimatesmart.data.local.ClimateCity
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import javax.inject.Inject

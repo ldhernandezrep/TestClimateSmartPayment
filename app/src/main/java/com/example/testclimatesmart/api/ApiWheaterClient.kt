@@ -1,6 +1,6 @@
 package com.example.testclimatesmart.api
 
-import com.example.testclimatesmart.data.ClimateCity
+import com.example.testclimatesmart.data.local.ClimateCity
 import retrofit2.http.GET
 import retrofit2.http.Query
 

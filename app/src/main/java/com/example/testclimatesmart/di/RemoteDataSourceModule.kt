@@ -1,7 +1,7 @@
 package com.example.testclimatesmart.di
 
-import com.example.testclimatesmart.data.RemoteClimateDayCelsiusDataSource
-import com.example.testclimatesmart.data.RemoteClimateDayDataSource
+import com.example.testclimatesmart.data.remote.RemoteClimateDayCelsiusDataSource
+import com.example.testclimatesmart.data.remote.RemoteClimateDayDataSource
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn

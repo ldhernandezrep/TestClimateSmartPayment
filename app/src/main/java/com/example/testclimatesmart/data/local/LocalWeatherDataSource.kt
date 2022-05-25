@@ -8,5 +8,6 @@ class LocalWeatherDataSource @Inject constructor(private val weatherDao: Weather
         weatherDao.savWeather(weatherEntity)
 
     suspend fun getWeathers(): List<WeatherEntity> = weatherDao.getWheater()
+    suspend fun getWeathersByDt(dt: Long): List<WeatherEntity> = weatherDao.getWeathersByDt(dt)
 
 }

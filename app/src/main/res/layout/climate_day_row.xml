@@ -1,27 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="#FFFFFF"
     android:layout_width="match_parent"
-    android:layout_height="210dp"
+    android:layout_height="230dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tvTitleDay"
+        android:layout_marginTop="10dp"
         android:layout_width="match_parent"
         android:layout_height="30dp"
+        android:layout_marginLeft="10dp"
         android:text="22 - MAYO -2022"
-        android:textColor="#874839"
+        android:textColor="#333312"
         android:textSize="20dp"
         android:textStyle="bold" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rcvClimateDay"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_marginLeft="5dp"
+        android:layout_height="180dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         android:orientation="horizontal"
         tools:listitem="@layout/climate_general_row" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_centerVertical="true"
+        android:layout_margin="0dp"
+        android:background="#00BCD4" />
 
 </LinearLayout>

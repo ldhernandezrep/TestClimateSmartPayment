@@ -1,4 +1,6 @@
-package com.example.testclimatesmart.data
+package com.example.testclimatesmart.data.remote
+
+import com.example.testclimatesmart.data.local.ClimateCity
 
 
 interface RemoteClimateDayDataSource {

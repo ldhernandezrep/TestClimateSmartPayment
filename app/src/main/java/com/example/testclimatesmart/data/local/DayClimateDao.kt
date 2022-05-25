@@ -14,4 +14,7 @@ interface DayClimateDao {
     @Query("SELECT dt,visibility,pop,dt_txt,dt_txt_short FROM DayClimateEntity")
     suspend fun getDayClimateLastFive(): List<DayClimateEntity>;
 
+    @Query("SELECT dt,visibility,pop,dt_txt,dt_txt_short FROM DayClimateEntity WHERE dt = :dt")
+    suspend fun getDayClimateByDt(dt: Long): DayClimateEntity;
+
 }

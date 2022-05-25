@@ -66,36 +66,12 @@ class ClimateDayAdapter(
 
         override fun bind(item: DayClimate) {
 
-
-            binding.tvTemperature.text =
-                item.weather.filter { x -> x.dt == item.dt }.first().description
-
-
-            val url: String = item.weather.filter { x -> x.dt == item.dt }.first().icon;
-
-            binding.tvClimateName.text = url
-
-            Log.d("Glide uno", url)
-
-            /* Glide.with(context).asBitmap()
-                 .load(url)
-                 .into(binding.imvClimate)*/
+            binding.tvWeatherDescripcion.text =
+                item.weather.filter { x -> x.dt == item.dt }.firstOrNull()?.description ?: ""
+            binding.tvHumidity.text = "${item.main.humidity.toString()} %"
+            binding.tvTemperatureMain.text = "${item.main.feels_like.toString()}° C"
 
 
-            binding.imvClimate.load(item.weather.filter { x -> x.dt == item.dt }.first().icon) {
-                listener(
-                    // pass two arguments
-                    onSuccess = { _, _ ->
-
-                    },
-                    onError = { request: ImageRequest, throwable: Throwable ->
-                        request.error
-                        Log.d("Error image", throwable.message.toString())
-                    })
-                // setup error image
-                error(R.drawable.storm)
-
-            }
 
         }
     }

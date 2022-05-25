@@ -6,13 +6,14 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 
 @Database(
-    entities = [DayClimateEntity::class, WeatherEntity::class],
-    version = 2
+    entities = [DayClimateEntity::class, WeatherEntity::class, MainEntity::class],
+    version = 4
 )
 abstract class DataBaseWheater : RoomDatabase() {
 
     abstract fun dayClimateDao(): DayClimateDao
     abstract fun weatherDao(): WeatherDao
+    abstract fun mainDao(): MainClimateDao
 
     companion object {
 

@@ -7,5 +7,7 @@ object Constantes {
     const val REQUEST_CODE_LOCATION_PERMISSION = 3
     const val URL_IMAGE_BASE = " https://openweathermap.org/img/wn/"
     const val EXTENSION = ".png"
+    const val LAT_DEFAULT = 19.300
+    const val LON_DEFAULT = -99.0844
 
 }

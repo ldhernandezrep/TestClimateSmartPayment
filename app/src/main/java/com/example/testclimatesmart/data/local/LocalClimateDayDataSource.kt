@@ -9,4 +9,6 @@ class LocalClimateDayDataSource @Inject constructor(private val climateDao: DayC
 
     suspend fun getDayClimateLastFive(): List<DayClimateEntity> = climateDao.getDayClimateLastFive()
 
+    suspend fun getDayClimateByDt(dt: Long): DayClimateEntity = climateDao.getDayClimateByDt(dt)
+
 }

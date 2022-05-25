@@ -3,6 +3,7 @@ package com.example.testclimatesmart.di
 import android.content.Context
 import com.example.testclimatesmart.data.local.DataBaseWheater
 import com.example.testclimatesmart.data.local.DayClimateDao
+import com.example.testclimatesmart.data.local.MainClimateDao
 import com.example.testclimatesmart.data.local.WeatherDao
 import dagger.Module
 import dagger.Provides
@@ -29,6 +30,11 @@ object DatabaseModule {
     @Provides
     fun providWeatherDao(appDatabase: DataBaseWheater): WeatherDao {
         return appDatabase.weatherDao()
+    }
+
+    @Provides
+    fun providMainDao(appDatabase: DataBaseWheater): MainClimateDao {
+        return appDatabase.mainDao()
     }
 
 }
