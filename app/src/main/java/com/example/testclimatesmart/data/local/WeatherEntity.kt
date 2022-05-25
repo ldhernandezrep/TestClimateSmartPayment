@@ -19,10 +19,10 @@ class WeatherEntity(
     var icon: String
 )
 
-fun Weather.toWeatherEntity(dt: Long, icon: String): WeatherEntity = WeatherEntity(
+fun Weather.toWeatherEntity(dt: Long): WeatherEntity = WeatherEntity(
     dt,
     this.id,
     this.main,
     this.description,
-   icon
+    this.icon
 )

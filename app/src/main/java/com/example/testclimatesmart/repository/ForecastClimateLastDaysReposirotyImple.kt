@@ -38,9 +38,7 @@ class ForecastClimateLastDaysReposirotyImple @Inject constructor(
                 localMainClimateDataSource.saveDayClimate(it.main.toMainEntity(it.dt))
 
                 it.weather.forEach({ itweather ->
-                    var icon: String =
-                        Constantes.URL_IMAGE_BASE + itweather.icon + Constantes.EXTENSION
-                    localWeatherDataSource.saveWeather(itweather.toWeatherEntity(it.dt, icon))
+                    localWeatherDataSource.saveWeather(itweather.toWeatherEntity(it.dt))
                 })
 
 

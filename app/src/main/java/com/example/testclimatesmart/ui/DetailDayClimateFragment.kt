@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import com.bumptech.glide.Glide
 import com.example.testclimatesmart.R
+import com.example.testclimatesmart.core.Constantes
 import com.example.testclimatesmart.core.ResultsState
 import com.example.testclimatesmart.databinding.FragmentClimateBinding
 import com.example.testclimatesmart.databinding.FragmentDetailDayClimateBinding
@@ -52,7 +53,8 @@ class DetailDayClimateFragment : Fragment(R.layout.fragment_detail_day_climate) 
                             x.data.weather.filter { it.dt == dt }.first().description
 
                         Glide.with(requireContext())
-                            .load(x.data.weather.filter { it.dt == dt }.first().icon)
+                            .load(Constantes.URL_IMAGE_BASE + x.data.weather.filter { it.dt == dt }
+                                .first().icon + Constantes.EXTENSION)
                             .centerCrop()
                             .error(R.drawable.storm)
                             .into(binding.tvIconClimate)
